@@ -14,7 +14,7 @@ class AppController extends Controller
     const TD_MARGIN = 4*2;*/
 
     const WEB_LG_WIDTH = 379;
-    const WEB_LG_HEIGHT = 382;
+    const WEB_LG_HEIGHT = 380;
     const WEB_SM_WIDTH = 122;
     const WEB_SM_HEIGHT = 126;
     const WEB_MARGIN = 1;
