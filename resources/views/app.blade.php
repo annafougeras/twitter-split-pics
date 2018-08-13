@@ -12,10 +12,8 @@
     <title>Twitter split pics</title>
 </head>
 <body>
-<div class="flex-center position-ref full-height">
-    <div class="content">
-        @yield('content')
-    </div>
+<div class="container">
+    @yield('content')
 </div>
 </body>
 </html>

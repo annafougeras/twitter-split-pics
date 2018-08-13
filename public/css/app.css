@@ -1,3 +1,24 @@
+/* Index */
+.text-muted {
+    font-size: 0.9em;
+}
+.example {
+    width: 100%;
+    max-width: 400px;
+}
+h1, h2 {
+    color: #1577b4;
+}
+h1 a, h1 a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+@media (max-width: 1199.98px) {
+    .col-xl-6:nth-child(2) h2 {
+        margin-top: 1rem;
+    }
+}
+
 .pic-group {
     display : flex;
     flex-wrap: wrap;
@@ -30,16 +51,31 @@
 
 /* Mobile */
 .mobile-group {
-    max-width: 600px;
+    max-height: 400px;
+    flex-direction: column; /* Sort by column to keep items aligned on small screens */
+    align-content: flex-start;
 }
+.mobile-group div:nth-child(1) {
+    order: 1;
+}
+.mobile-group div:nth-child(2) {
+    order: 3;
+}
+.mobile-group div:nth-child(3) {
+    order: 2;
+}
+.mobile-group div:nth-child(4) {
+    order: 4;
+}
+
 .mobile-group img {
-    width: 279px;
+    width: 248px;
 }
 .mobile-group div:nth-child(odd) {
-    margin-right : 8px;
+    margin-right : 7px;
 }
 .mobile-group div:nth-child(-n+2) {
-    margin-bottom : 8px;
+    margin-bottom : 7px;
 }
 
 
@@ -50,7 +86,7 @@
 .pic-group div:nth-child(2) img {
     border-top-right-radius: 5px;
 }
-.tweetdeck-group div:nth-child(3) img, .desktop-group div:first-child img {
+.mobile-group div:nth-child(3) img, .desktop-group div:first-child img {
     border-bottom-left-radius: 5px;
 }
 .pic-group div:nth-child(4) img {

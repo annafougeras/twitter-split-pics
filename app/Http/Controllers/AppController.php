@@ -32,13 +32,13 @@ class AppController extends Controller
     public function split(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'pic' => 'required|mimes:jpeg,png|max:5000',
+            'picture' => 'required|mimes:jpeg,png|max:2000',
         ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
 
-        $orig_pic = Image::make($request->pic);
+        $orig_pic = Image::make($request->picture);
 
         /*// Tweetdeck
         $tweetdeck_fit = (clone $orig_pic)->fit(self::TD_WIDTH*2 + self::TD_MARGIN,
