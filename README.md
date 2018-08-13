@@ -9,7 +9,6 @@ Supports mobile Twitter, Tweetdeck and desktop Twitter.
 
 **TODO :**
 
-- add favicon
 - clean code (remove Tweetdeck specific code)
 - better memory allocation to support higher res images
 - write cron job to delete public/uploads/ folder content
