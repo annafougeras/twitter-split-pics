@@ -9,10 +9,6 @@ use Intervention\Image\Facades\Image;
 
 class AppController extends Controller
 {
-    /*const TD_WIDTH = 135*2;
-    const TD_HEIGHT = 75*2;
-    const TD_MARGIN = 4*2;*/
-
     const WEB_LG_WIDTH = 379;
     const WEB_LG_HEIGHT = 380;
     const WEB_SM_WIDTH = 122;
@@ -24,7 +20,8 @@ class AppController extends Controller
     const MOB_MARGIN = 12;
 
     /**
-     * Show the profile for the given user.
+     * Split the given picture into 4 mobile Twitter thumbnails and 4 desktop Twitter thumbnails,
+     * and store the thumbnails in the uploads folder
      *
      * @param Request $request
      * @return Response
@@ -40,20 +37,7 @@ class AppController extends Controller
 
         $orig_pic = Image::make($request->picture);
 
-        /*// Tweetdeck
-        $tweetdeck_fit = (clone $orig_pic)->fit(self::TD_WIDTH*2 + self::TD_MARGIN,
-                                                self::TD_HEIGHT*2 + self::TD_MARGIN);
-
-        $pics['tweetdeck'][] = (clone $tweetdeck_fit)
-            ->crop(self::TD_WIDTH, self::TD_HEIGHT, 0, 0);
-        $pics['tweetdeck'][] = (clone $tweetdeck_fit)
-            ->crop(self::TD_WIDTH, self::TD_HEIGHT, self::TD_WIDTH + self::TD_MARGIN, 0);
-        $pics['tweetdeck'][] = (clone $tweetdeck_fit)
-            ->crop(self::TD_WIDTH, self::TD_HEIGHT, 0, self::TD_HEIGHT + self::TD_MARGIN);
-        $pics['tweetdeck'][] = (clone $tweetdeck_fit)
-            ->crop(self::TD_WIDTH, self::TD_HEIGHT, self::TD_WIDTH + self::TD_MARGIN, self::TD_HEIGHT + self::TD_MARGIN);*/
-
-        // Mobile
+        // Mobile thumbnails creation
         $mobile_fit = (clone $orig_pic)->fit(self::MOB_WIDTH*2 + self::MOB_MARGIN,
             self::MOB_HEIGHT*2 + self::MOB_MARGIN);
 
@@ -67,7 +51,7 @@ class AppController extends Controller
             ->crop(self::MOB_WIDTH, self::MOB_HEIGHT, self::MOB_WIDTH + self::MOB_MARGIN, self::MOB_HEIGHT + self::MOB_MARGIN);
 
 
-        // Desktop
+        // Desktop thumbnails creation
         $desktop_fit = (clone $orig_pic)->fit(self::WEB_LG_WIDTH + self::WEB_MARGIN + self::WEB_SM_WIDTH,
                                                 self::WEB_LG_HEIGHT);
 
@@ -81,9 +65,8 @@ class AppController extends Controller
             ->crop(self::WEB_SM_WIDTH, self::WEB_SM_HEIGHT, self::WEB_LG_WIDTH + self::WEB_MARGIN, (self::WEB_SM_HEIGHT + self::WEB_MARGIN)*2);
 
 
-
+        // Store the created pictures
         $rand = rand(1000000,9999999);
-
         $i = 0;
         foreach(array_keys($pics) as $format){
             foreach($pics[$format] as $pic){

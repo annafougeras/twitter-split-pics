@@ -23,25 +23,13 @@ h1 a, h1 a:hover {
     display : flex;
     flex-wrap: wrap;
     border-radius: 5px;
-}
-
-/* Tweetdeck */
-.tweetdeck-group {
-    max-width: 550px;
-}
-.tweetdeck-group div:nth-child(odd) {
-    margin-right : 8px;
-}
-.tweetdeck-group div:nth-child(-n+2) {
-    margin-bottom : 8px;
-}
-
-/* Desktop */
-.desktop-group {
-    flex-direction : column;
     max-height: 400px;
+    flex-direction : column;
     align-content: flex-start;
 }
+
+
+/* Desktop */
 .desktop-group div:first-child {
     margin-right: 1px;
 }
@@ -49,11 +37,16 @@ h1 a, h1 a:hover {
     margin-bottom: 1px;
 }
 
+
 /* Mobile */
-.mobile-group {
-    max-height: 400px;
-    flex-direction: column; /* Sort by column to keep items aligned on small screens */
-    align-content: flex-start;
+.mobile-group img {
+    width: 248px;
+}
+.mobile-group div:nth-child(odd) {
+    margin-right : 7px;
+}
+.mobile-group div:nth-child(-n+2) {
+    margin-bottom : 7px;
 }
 .mobile-group div:nth-child(1) {
     order: 1;
@@ -66,16 +59,6 @@ h1 a, h1 a:hover {
 }
 .mobile-group div:nth-child(4) {
     order: 4;
-}
-
-.mobile-group img {
-    width: 248px;
-}
-.mobile-group div:nth-child(odd) {
-    margin-right : 7px;
-}
-.mobile-group div:nth-child(-n+2) {
-    margin-bottom : 7px;
 }
 
 
