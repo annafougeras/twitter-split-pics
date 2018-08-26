@@ -1,0 +1,5 @@
+# The following cron command is set to run every hour and deletes every file
+# from the /public/uploads folder that is older than 10 minutes
+MAILTO=example@example.com
+0 * * * * find /public/uploads -maxdepth 1 -mmin +9 -type f -exec rm -f {} \; > /dev/null
+

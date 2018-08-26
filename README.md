@@ -6,7 +6,3 @@ Supports mobile Twitter, Tweetdeck and desktop Twitter.
 
 ![Example image](docs/example.jpg "An example of the result")
 
-
-**TODO :**
-
-- write cron job to delete public/uploads/ folder content
